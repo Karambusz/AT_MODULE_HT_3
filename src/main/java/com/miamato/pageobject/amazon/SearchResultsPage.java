@@ -17,7 +17,7 @@ public class SearchResultsPage extends BasePage {
     @FindAll(@FindBy(xpath = "//div[@id='departments']//span[@class='a-size-base a-color-base']"))
     public static List<WebElement> SEARCH_RESULTS_DEPARTMENTS_IN_LEFT_MENU;
 
-    @FindBy(xpath = "//div[@data-index = 4]//span[contains (@class, 'a-color-base a-text-normal')]")
+    @FindBy(xpath = "//div[@data-index = 3]//span[contains (@class, 'a-color-base a-text-normal')]")
     public static WebElement PRODUCT_TO_ADD_TO_CART;
 
     public static final int TARGET_DEPARTMENT_INDEX = 0;

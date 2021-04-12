@@ -18,31 +18,31 @@ import java.util.List;
 
 public class AmazonBasicTests extends BaseTest {
     //--------TEST 1---------
-    private static final String NAVIGATOR_ITEM_1 = PropertyManager.getProperty("navigator.item.1");
-    private static final String NAVIGATOR_ITEM_2 = PropertyManager.getProperty("navigator.item.2");
-    private static final String NAVIGATOR_ITEM_3 = PropertyManager.getProperty("navigator.item.3");
-    private static final String NAVIGATOR_ITEM_4 = PropertyManager.getProperty("navigator.item.4");
-    private static final String NAVIGATOR_ITEM_5 = PropertyManager.getProperty("navigator.item.5");
-    private static final String NAVIGATOR_ITEM_6 = PropertyManager.getProperty("navigator.item.6");
-    private static final String NAVIGATOR_ITEM_7 = PropertyManager.getProperty("navigator.item.7");
-    private static final String NAVIGATOR_ITEM_8 = PropertyManager.getProperty("navigator.item.8");
+    private static final String NAVIGATOR_BEST_SELLERS = PropertyManager.getProperty("navigator.item.1");
+    private static final String NAVIGATOR_PRIME_VIDEO = PropertyManager.getProperty("navigator.item.2");
+    private static final String NAVIGATOR_DEALS = PropertyManager.getProperty("navigator.item.3");
+    private static final String NAVIGATOR_CUSTOMER_SERVICE = PropertyManager.getProperty("navigator.item.4");
+    private static final String NAVIGATOR_PRIME = PropertyManager.getProperty("navigator.item.5");
+    private static final String NAVIGATOR_RELEASES = PropertyManager.getProperty("navigator.item.6");
+    private static final String NAVIGATOR_BOOKS = PropertyManager.getProperty("navigator.item.7");
+    private static final String NAVIGATOR_BEAUTY = PropertyManager.getProperty("navigator.item.8");
     private static final List<String> EXPECTED_NAVIGATOR_ITEMS= Arrays.asList(
-            NAVIGATOR_ITEM_1,
-            NAVIGATOR_ITEM_2,
-            NAVIGATOR_ITEM_3,
-            NAVIGATOR_ITEM_4,
-            NAVIGATOR_ITEM_5,
-            NAVIGATOR_ITEM_6,
-            NAVIGATOR_ITEM_7,
-            NAVIGATOR_ITEM_8
+            NAVIGATOR_BEST_SELLERS,
+            NAVIGATOR_PRIME_VIDEO,
+            NAVIGATOR_DEALS,
+            NAVIGATOR_CUSTOMER_SERVICE,
+            NAVIGATOR_PRIME,
+            NAVIGATOR_RELEASES,
+            NAVIGATOR_BOOKS,
+            NAVIGATOR_BEAUTY
     );
     //--------TEST 2---------
-    private static final String SEARCH_TERM_1 = PropertyManager.getProperty("term.to.search.1");
-    private static final String SEARCH_TERM_2 = PropertyManager.getProperty("term.to.search.2");
-    private static final String SEARCH_TERM_3 = PropertyManager.getProperty("term.to.search.3");
-    private static final String SEARCH_EXPECTED_DEPARTMENT_1 = PropertyManager.getProperty("search.result.department.1");
-    private static final String SEARCH_EXPECTED_DEPARTMENT_2 = PropertyManager.getProperty("search.result.department.2");
-    private static final String SEARCH_EXPECTED_DEPARTMENT_3 = PropertyManager.getProperty("search.result.department.3");
+    private static final String SEARCH_TERM_LAPTOPS = PropertyManager.getProperty("term.to.search.1");
+    private static final String SEARCH_TERM_GAMES = PropertyManager.getProperty("term.to.search.2");
+    private static final String SEARCH_TERM_INTEL_CORE = PropertyManager.getProperty("term.to.search.3");
+    private static final String SEARCH_EXPECTED_DEPARTMENT_COMPUTERS = PropertyManager.getProperty("search.result.department.1");
+    private static final String SEARCH_EXPECTED_DEPARTMENT_GAMES = PropertyManager.getProperty("search.result.department.2");
+    private static final String SEARCH_EXPECTED_DEPARTMENT_COMPONENTS = PropertyManager.getProperty("search.result.department.3");
     //--------TEST 3---------
     private static final String NUMBER_OF_PRODUCTS = PropertyManager.getProperty("product.count");
     //--------TEST 4---------
@@ -57,9 +57,9 @@ public class AmazonBasicTests extends BaseTest {
     @DataProvider(name = "search-term-set")
     public Object[][] searchTerms() {
         return new Object[][]
-                {{SEARCH_TERM_1, SEARCH_EXPECTED_DEPARTMENT_1}
-                        ,{SEARCH_TERM_2, SEARCH_EXPECTED_DEPARTMENT_2}
-                        ,{SEARCH_TERM_3, SEARCH_EXPECTED_DEPARTMENT_3}};
+                {{SEARCH_TERM_LAPTOPS, SEARCH_EXPECTED_DEPARTMENT_COMPUTERS}
+                        ,{SEARCH_TERM_GAMES, SEARCH_EXPECTED_DEPARTMENT_GAMES}
+                        ,{SEARCH_TERM_INTEL_CORE, SEARCH_EXPECTED_DEPARTMENT_COMPONENTS}};
     }
 
     @Test(dataProvider = "search-term-set")
@@ -72,7 +72,7 @@ public class AmazonBasicTests extends BaseTest {
     @Test
     public void addProductToCart() {
         homePage.open()
-                .searchByTerm(SEARCH_TERM_1);
+                .searchByTerm(SEARCH_TERM_LAPTOPS);
         searchResultsPage.chooseProductToAdd();
         productDetailsPage.selectNumberOfProducts(NUMBER_OF_PRODUCTS)
                 .addProductToBasket();
@@ -82,7 +82,7 @@ public class AmazonBasicTests extends BaseTest {
     @Test
     public void addProductToCartAndThenRemove() {
         homePage.open()
-                .searchByTerm(SEARCH_TERM_1);
+                .searchByTerm(SEARCH_TERM_LAPTOPS);
         searchResultsPage.chooseProductToAdd();
         productDetailsPage.selectNumberOfProducts(NUMBER_OF_PRODUCTS)
                 .addProductToBasket()
