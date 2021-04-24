@@ -15,9 +15,12 @@
     <version.guava>30.1-jre</version.guava>
     <version.slf4j.nop>2.0.0-alpha1</version.slf4j.nop>
     <version.log4j>2.14.1</version.log4j>
+    <version.cucumber>6.10.3</version.cucumber>
+
+
 
     <version.download-maven-plugin>1.6.1</version.download-maven-plugin>
-    <version.chromedriver>89.0.4389.23</version.chromedriver>
+    <version.chromedriver>90.0.4430.24</version.chromedriver>
     <md5.chromedriver>0bf4bc39f34cee67f5f95afd8a24c191</md5.chromedriver>
     <version.geckodriver>v0.29.0</version.geckodriver>
     <!-- 32 bit
@@ -96,6 +99,18 @@
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-core</artifactId>
       <version>${version.log4j}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>${version.cucumber}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-testng</artifactId>
+      <version>${version.cucumber}</version>
     </dependency>
 
 

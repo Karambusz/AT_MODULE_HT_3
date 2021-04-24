@@ -1,6 +1,7 @@
 package com.miamato.pageobject.amazon;
 
 import com.miamato.pageobject.BasePage;
+import com.miamato.pageobject.PageManager;
 import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,30 +25,29 @@ public class ProductDetailsPage extends BasePage {
     @FindBy(xpath = "//span[@id='nav-cart-count']//parent::div//parent::a")
     public static WebElement BASKET_LINK;
 
-    public ProductDetailsPage(WebDriver driver){
-        this.driver = driver;
-        PageFactory.initElements(this.driver, this);
+    public ProductDetailsPage(WebDriver driver, PageManager pageManager){
+        super(driver, pageManager);
     }
 
     @Step("Selecting number of products as: {number}")
-    public ProductDetailsPage selectNumberOfProducts(String number){
+    public PageManager selectNumberOfProducts(String number){
         logger.info("Selecting number of products");
         selectFromDropdownByValue(SELECT_NUMBER_OF_PRODUCTS, number, logger);
-        return this;
+        return this.pageManager;
     }
 
     @Step("Add product to basket")
-    public ProductDetailsPage addProductToBasket() {
+    public PageManager addProductToBasket() {
         logger.info("Clicking on element " + ADD_TO_BASKET_BUTTON);
         ADD_TO_BASKET_BUTTON.click();
-        return this;
+        return this.pageManager;
     }
 
     @Step("Open basket page")
-    public ProductDetailsPage openBasketPage() {
+    public PageManager openBasketPage() {
         logger.info("Clicking on element " + BASKET_LINK);
         BASKET_LINK.click();
-        return this;
+        return this.pageManager;
     }
 
 

@@ -8,7 +8,7 @@
     <test name="Allure Reports Example Chrome">
         <parameter name="browserName" value="Chrome" />
         <classes>
-            <class name="com.miamato.test.AmazonBasicTests" />
+            <class name="com.miamato.test.CucumberRunner" />
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

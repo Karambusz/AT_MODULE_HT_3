@@ -10,12 +10,20 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.devtools.v89.page.Page;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 
 public abstract class BasePage extends Page {
 
     protected WebDriver driver;
+    protected PageManager pageManager;
+
+    public BasePage(WebDriver driver,PageManager pageManager){
+        this.driver = driver;
+        PageFactory.initElements(this.driver, this);
+        this.pageManager = pageManager;
+    }
 
     @FindBy(xpath = "//input[@id='sp-cc-accept']")
     protected static WebElement ACCEPT_COOKIES_BUTTON;

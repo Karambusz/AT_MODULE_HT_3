@@ -2,6 +2,7 @@ package com.miamato.pageobject.amazon;
 
 import com.miamato.PropertyManager;
 import com.miamato.pageobject.BasePage;
+import com.miamato.pageobject.PageManager;
 import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -28,25 +29,26 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//input[@id='nav-search-submit-button']")
     public static WebElement SEARCH_BUTTON;
 
-    public HomePage(WebDriver driver){
-        this.driver = driver;
-        PageFactory.initElements(this.driver, this);
+    public HomePage(WebDriver driver, PageManager pageManager){
+        super(driver, pageManager);
     }
 
     @Step("Open application home page")
-    public HomePage open(){
+    public PageManager open(){
         logger.info("Trying to open application");
         driver.navigate().to(HOME_PAGE_URL);
         Assert.assertEquals(PAGE_TITLE, driver.getTitle());
         acceptCookiesIfPopupPresent(logger);
-        return this;
+        return this.pageManager;
     }
 
     @Step("Search for a product with name: {productName}")
-    public HomePage searchByTerm(String productName){
+    public PageManager searchByTerm(String productName){
         logger.info("Performing search for product with title: " + productName);
         enterTextIntoField(SEARCH_FIELD, productName, logger);
         SEARCH_BUTTON.click();
-        return this;
+        return this.pageManager;
     }
+
+
 }
