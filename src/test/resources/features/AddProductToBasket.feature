@@ -10,4 +10,4 @@ Feature: Add product to the cart
 
     Examples:
       |search_term          |number_of_products |
-      |term.to.search.1     | product.count     |
+      |item.to.add          | product.count     |

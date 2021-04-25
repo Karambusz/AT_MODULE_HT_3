@@ -8,20 +8,16 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class ProductDetailsPage extends BasePage {
     private static final Logger logger = LogManager.getLogger(ProductDetailsPage.class.getSimpleName());
 
     @FindBy(xpath = "//select[@id='quantity']")
     public static WebElement SELECT_NUMBER_OF_PRODUCTS;
-
     @FindBy(xpath = "//input[@id='add-to-cart-button']")
     public static WebElement ADD_TO_BASKET_BUTTON;
-
     @FindBy(xpath = "//span[@id='nav-cart-count']")
     public static WebElement BASKET;
-
     @FindBy(xpath = "//span[@id='nav-cart-count']//parent::div//parent::a")
     public static WebElement BASKET_LINK;
 

@@ -1,9 +1,6 @@
 package com.miamato.pageobject;
 
-import com.miamato.pageobject.amazon.BasketPage;
-import com.miamato.pageobject.amazon.HomePage;
-import com.miamato.pageobject.amazon.ProductDetailsPage;
-import com.miamato.pageobject.amazon.SearchResultsPage;
+import com.miamato.pageobject.amazon.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -17,6 +14,7 @@ public class PageManager {
     private SearchResultsPage searchResultsPage;
     private ProductDetailsPage productDetailsPage;
     private BasketPage basketPage;
+    private SignInPage signInPage;
 
 
     public PageManager(WebDriver driver){
@@ -45,5 +43,11 @@ public class PageManager {
         if(basketPage == null)
             basketPage = new BasketPage(driver, this);
         return basketPage;
+    }
+
+    public SignInPage signInPage(){
+        if(signInPage == null)
+            signInPage = new SignInPage(driver, this);
+        return signInPage;
     }
 }

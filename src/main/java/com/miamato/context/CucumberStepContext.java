@@ -4,6 +4,7 @@ package com.miamato.context;
 import com.miamato.PropertyManager;
 import com.miamato.pageobject.PageManager;
 import org.openqa.selenium.WebDriver;
+import org.testng.asserts.SoftAssert;
 
 public class CucumberStepContext {
 
@@ -11,6 +12,15 @@ public class CucumberStepContext {
     PageManager pageManager;
     PropertyManager propertyManager;
     private static CucumberStepContext instance;
+    public SoftAssert softAssert = new SoftAssert();
+
+    public SoftAssert getSoftAssert() {
+        return softAssert;
+    }
+
+    public void setSoftAssert(SoftAssert softAssert) {
+        this.softAssert = softAssert;
+    }
 
     private CucumberStepContext(){}
 

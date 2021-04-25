@@ -46,9 +46,7 @@ public class AddProductSteps {
     }
 
     @Then("check that {string} product was added")
-    public void checkThatNumber_of_productsProductWasAdded(String numberOfProducts) throws InterruptedException {
-        Thread.sleep(5000);
-
+    public void checkThatProductWasAdded(String numberOfProducts){
         logger.info("Checking if expected text: \"" + PropertyManager.getProperty(numberOfProducts)
                 + "\" is equal to text in element:  " + ProductDetailsPage.BASKET);
 
